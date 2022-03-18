@@ -3,6 +3,8 @@ import './Product.css';
 import {QuantitySelector} from "../QuantitySelector/QuantitySelector"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/fontawesome-free-regular';
+import PropTypes from 'prop-types';
+
 
 export const Product = function (props) {
 
@@ -23,3 +25,11 @@ export const Product = function (props) {
         </div>
     );
 }
+
+Product.propTypes = {
+    id: PropTypes.number,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number
+};

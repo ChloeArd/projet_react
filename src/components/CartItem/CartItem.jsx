@@ -2,6 +2,8 @@ import './CartItem.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/fontawesome-free-regular';
+import PropTypes from "prop-types";
+import {Product} from "../Product/Product";
 
 export const CartItem = function (props) {
 
@@ -21,3 +23,9 @@ export const CartItem = function (props) {
         </div>
     );
 }
+
+Product.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    quantity: PropTypes.number,
+};
