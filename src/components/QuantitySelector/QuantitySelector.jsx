@@ -7,5 +7,5 @@ export const QuantitySelector = function () {
             <input type={"number"} value={10} />
             <button className={"add"} > + </button>
         </div>
-    )
+    );
 }

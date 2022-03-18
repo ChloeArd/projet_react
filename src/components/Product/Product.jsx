@@ -21,5 +21,5 @@ export const Product = function (props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

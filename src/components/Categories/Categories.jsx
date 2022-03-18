@@ -13,5 +13,5 @@ export const Categories = function () {
                 </select>
             </form>
         </div>
-    )
+    );
 }

@@ -16,9 +16,7 @@ function App() {
                   <ProductList />
               </div>
           </div>
-
       </>
-
   );
 }
 

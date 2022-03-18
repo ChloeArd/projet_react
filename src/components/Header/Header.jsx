@@ -6,5 +6,5 @@ export const Header = function () {
         <div className="Header">
             <img src={logo} alt="Shop logo" />
         </div >
-    )
+    );
 }

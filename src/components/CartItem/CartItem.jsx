@@ -19,5 +19,5 @@ export const CartItem = function (props) {
             </div>
 
         </div>
-    )
+    );
 }
