@@ -27,7 +27,6 @@ button {
 }
 
 .empty {
-    position: absolute;
-    left: 20.5%;
-    bottom: 18%;
+    margin-top: 410px;
+    margin-left: 55%;
 }

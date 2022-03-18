@@ -12,6 +12,10 @@
     padding-bottom: 15px;
 }
 
+.trash:hover {
+    color: #C72C2C;
+}
+
 .titleCartItem {
     font-size: 20px;
 }
