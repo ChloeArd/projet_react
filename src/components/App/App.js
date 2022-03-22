@@ -35,7 +35,7 @@ function App() {
         <>
             <Header/>
             <div className="width_80">
-                <Cart products={products}/>
+                <Cart products={products} setIsProductUpdated={setIsProductUpdated}/>
                 <div className="width_80_2">
                     <Categories/>
                     <ProductList products={products} setIsProductUpdated={setIsProductUpdated}/>
