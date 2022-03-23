@@ -16,15 +16,16 @@ function App() {
     let content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel augue vitae ligula finibus mollis. Cras tempor vel arcu hendrerit facilisis. Nunc non neque tristique, maximus dolor non, vestibulum mi.";
 
     const productsList = [
-        {id: 1, cart: 1, title: "Produit 1", image: image1, description: content, price: 230, stock: 12},
-        {id: 2, cart: 0, title: "Produit 2", image: image2, description: content, price: 230, stock: 35},
-        {id: 3, cart: 1, title: "Produit 3", image: image3, description: content, price: 230, stock: 27},
-        {id: 4, cart: 1, title: "Produit 4", image: image4, description: content, price: 230, stock: 60},
-        {id: 5, cart: 0, title: "Produit 5", image: image5, description: content, price: 230, stock: 0}
+        {id: 1, category: 2, cart: 1, title: "Produit 1", image: image1, description: content, price: 230, stock: 12},
+        {id: 2, category: 2, cart: 0, title: "Produit 2", image: image2, description: content, price: 230, stock: 35},
+        {id: 3, category: 2, cart: 1, title: "Produit 3", image: image3, description: content, price: 230, stock: 27},
+        {id: 4, category: 1, cart: 1, title: "Produit 4", image: image4, description: content, price: 230, stock: 60},
+        {id: 5, category: 2, cart: 0, title: "Produit 5", image: image5, description: content, price: 230, stock: 0}
     ];
 
     const [products, setProducts] = useState([...productsList]);
     const [isProductUpdated, setIsProductUpdated] = useState(false);
+    const [category, setCategory] = useState(0);
 
     if (isProductUpdated) {
         setProducts(products);
@@ -37,8 +38,8 @@ function App() {
             <div className="width_80">
                 <Cart products={products} setIsProductUpdated={setIsProductUpdated}/>
                 <div className="width_80_2">
-                    <Categories/>
-                    <ProductList products={products} setIsProductUpdated={setIsProductUpdated}/>
+                    <Categories setCategory={setCategory}/>
+                    <ProductList category={category} products={products} setIsProductUpdated={setIsProductUpdated}/>
                 </div>
             </div>
         </>

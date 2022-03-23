@@ -1,6 +1,6 @@
 .width_80 {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   padding: 40px;
   display: flex;
   flex-direction: row;
@@ -8,6 +8,6 @@
 
 .width_80_2 {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   padding: 40px;
 }

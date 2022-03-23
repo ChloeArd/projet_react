@@ -1,17 +1,18 @@
 import './Categories.css';
 
-export const Categories = function () {
+export const Categories = function ({setCategory}) {
+
+    const categories = [
+        {id: 0, name: "Tout"},
+        {id: 1, name: "Autres"},
+        {id: 2, name: "hardware"}
+    ];
 
     return (
         <div className="Categories">
-            <form>
-                <select>
-                    <option>Catégories</option>
-                    <option>Option1</option>
-                    <option>Option2</option>
-                    <option>Option3</option>
-                </select>
-            </form>
+            <select onChange={(e) => setCategory(parseInt(e.target.value))}>
+                {categories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+            </select>
         </div>
     );
 }
