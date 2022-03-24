@@ -86,7 +86,7 @@ switch ($requestType) {
 }
 
 /**
- * Return the user
+ * Return the favorite of user
  * @param FavoriteManager $manager
  * @return false|string
  */
