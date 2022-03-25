@@ -33,3 +33,7 @@ form > label {
     font-size: 25px;
     padding: 15px;
 }
+
+.red {
+    color: red;
+}
