@@ -28,7 +28,6 @@ export const Registration = function () {
                 <label htmlFor="repeat_password_user">Répétition du mot de passe</label>
                 <input type="password" {...register('repeatPassword', {required: true})}/>
                 <p className="red">{errors.repeatPassword?.type === 'required' && "La répétition du mot de passe est requis"}</p>
-
                 <input type="submit" value="S'inscrire"/>
             </form>
         </div>

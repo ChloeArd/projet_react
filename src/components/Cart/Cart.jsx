@@ -12,7 +12,7 @@ export const Cart = function ({products, setIsProductUpdated}) {
     return (
         <div className="Cart">
             <h1 className="title">Vos articles</h1>
-            {products.map(product => product.cart > 0 && <CartItem key={product.id} product={product} />)}
+            {products.map(product => product.cart > 0 && <CartItem key={product.id} product={product}/>)}
             <button className="empty" onClick={handleCartEmptyButtonClick}>Vider le panier</button>
         </div>
     );

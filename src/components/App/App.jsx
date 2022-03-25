@@ -9,11 +9,12 @@ import image2 from "../../assets/images/image2.png";
 import image3 from "../../assets/images/image3.png";
 import image4 from "../../assets/images/image4.png";
 import image5 from "../../assets/images/image5.png";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {FormCategory} from "../FormCategory/FormCategory";
 import {FormProduct} from "../FormProduct/FormProduct";
 import {Connection} from "../Connection/Connection";
 import {Registration} from "../Registration/Registration";
+import {Counter} from "../Counter/Counter";
 
 function App() {
 
@@ -37,6 +38,11 @@ function App() {
     const [isProductUpdated, setIsProductUpdated] = useState(false);
     const [category, setCategory] = useState(0);
     const [categories, setCategories] = useState([...categoriesList]);
+    const [factor, setFactor] = useState(0);
+
+    useEffect(() => {
+        setFactor(Math.floor(Math.random() * 100));
+    }, [setFactor, category]);
 
     if (isProductUpdated) {
         setProducts(products);
@@ -53,6 +59,7 @@ function App() {
                     <ProductList category={category} products={products} setIsProductUpdated={setIsProductUpdated}/>
                 </div>
             </div>
+            <Counter factor={factor}/>
             <FormCategory />
             <FormProduct categories={categories}/>
             <Connection/>
