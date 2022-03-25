@@ -28,6 +28,7 @@ class Role
 
     /**
      * @param int|null $id
+     * @return int|null
      */
     public function setId(?int $id): ?int
     {
@@ -45,6 +46,7 @@ class Role
 
     /**
      * @param string|null $role
+     * @return string|null
      */
     public function setRole(?string $role): ?string
     {

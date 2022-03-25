@@ -12,8 +12,10 @@ class CategoryManager {
     /**
      * Return a category based on id.
      * @param int $id
+     * @return Category
      */
-    public function getCategory(int $id) {
+    public function getCategory(int $id): Category
+    {
         $request = DB::getInstance()->prepare("SELECT * FROM category WHERE id = $id");
         $request->execute();
         $info = $request->fetch();

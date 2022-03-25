@@ -42,6 +42,7 @@ class Favorite
 
     /**
      * @param User|null $user_fk
+     * @return User|null
      */
     public function setUserFk(?User $user_fk): ?User
     {
@@ -59,6 +60,7 @@ class Favorite
 
     /**
      * @param Article|null $article_fk
+     * @return Article|null
      */
     public function setArticleFk(?Article $article_fk): ?Article
     {

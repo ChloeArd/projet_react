@@ -27,6 +27,7 @@ class Category extends \Model\Entity\Article
 
     /**
      * @param int|null $id
+     * @return int|null
      */
     public function setId(?int $id): ?int
     {
@@ -44,6 +45,7 @@ class Category extends \Model\Entity\Article
 
     /**
      * @param string|null $name
+     * @return string|null
      */
     public function setName(?string $name): ?string
     {

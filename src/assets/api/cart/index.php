@@ -130,6 +130,7 @@ switch ($requestType) {
 }
 
 /**
+ * Return a cart of user
  * @param CartManager $manager
  * @return string
  */

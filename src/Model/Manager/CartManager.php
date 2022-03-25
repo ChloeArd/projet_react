@@ -26,8 +26,9 @@ class CartManager
     /**
      * Return a article based on id.
      * @param int $id
+     * @return Cart
      */
-    public function getCart(int $id)
+    public function getCart(int $id): Cart
     {
         $request = DB::getInstance()->prepare("SELECT * FROM cart WHERE id = $id");
         $request->execute();
@@ -46,6 +47,7 @@ class CartManager
 
     /**
      * Return all articles
+     * @param int $user_fk
      * @return array
      */
     public function getCartOfUser(int $user_fk): array
@@ -59,7 +61,9 @@ class CartManager
             foreach ($roles_response as $info) {
                 $user = $this->userManager->getUser($user_fk);
                 $article = $this->articleManager->getArticle($info['article_fk']);
-                $cart[] = new Cart($info['id'], $info['quantity'], $article, $user);
+                if ($user->getId() && $article->getId()) {
+                    $cart[] = new Cart($info['id'], $info['quantity'], $article, $user);
+                }
             }
         }
         return $cart;
@@ -84,6 +88,11 @@ class CartManager
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
 
+    /**
+     * update cart
+     * @param Cart $cart
+     * @return bool
+     */
     public function update(Cart $cart): bool
     {
         $request = DB::getInstance()->prepare("UPDATE cart SET quantity = :quantity WHERE id = :id");

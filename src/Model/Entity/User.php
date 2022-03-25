@@ -13,7 +13,6 @@ class User
     private ?Role $role_fk;
 
     /**
-     * User constructor.
      * @param int|null $id
      * @param string|null $firstname
      * @param string|null $lastname
@@ -43,6 +42,7 @@ class User
 
     /**
      * @param int|null $id
+     * @return int
      */
     public function setId(?int $id): int
     {
@@ -60,6 +60,7 @@ class User
 
     /**
      * @param string|null $firstname
+     * @return string
      */
     public function setFirstname(?string $firstname): string
     {
@@ -77,6 +78,7 @@ class User
 
     /**
      * @param string|null $lastname
+     * @return string
      */
     public function setLastname(?string $lastname): string
     {
@@ -94,6 +96,7 @@ class User
 
     /**
      * @param string|null $email
+     * @return string|null
      */
     public function setEmail(?string $email): ?string
     {
@@ -111,6 +114,7 @@ class User
 
     /**
      * @param string|null $phone
+     * @return string|null
      */
     public function setPhone(?string $phone): ?string
     {
@@ -128,6 +132,7 @@ class User
 
     /**
      * @param string|null $password
+     * @return string|null
      */
     public function setPassword(?string $password): ?string
     {
@@ -145,7 +150,7 @@ class User
 
     /**
      * @param Role|null $role_fk
-     * @return Role
+     * @return Role|null
      */
     public function setRoleFk(?Role $role_fk): ?Role
     {

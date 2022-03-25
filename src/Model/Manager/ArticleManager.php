@@ -5,7 +5,6 @@ use JetBrains\PhpStorm\Pure;
 use Model\Category\CategoryManager;
 use Model\DB;
 use Model\Entity\Article;
-use Model\Entity\Category;
 use Model\Manager\Traits\ManagerTrait;
 
 class ArticleManager {
@@ -21,8 +20,10 @@ class ArticleManager {
     /**
      * Return a article based on id.
      * @param int $id
+     * @return Article
      */
-    public function getArticle(int $id) {
+    public function getArticle(int $id): Article
+    {
         $request = DB::getInstance()->prepare("SELECT * FROM article WHERE id = $id");
         $request->execute();
         $info = $request->fetch();
@@ -37,7 +38,7 @@ class ArticleManager {
             $category = $this->categoryManager->getCategory($info['category_fk']);
             $article->setCategoryFk($category);
         }
-        return $category;
+        return $article;
     }
 
     /**
@@ -53,12 +54,18 @@ class ArticleManager {
         if ($roles_response) {
             foreach ($roles_response as $info) {
                 $category = $this->categoryManager->getCategory($info['category_fk']);
-                $articles[] = new Article($info['id'], $info['name'], $info['image'], $info['description'], $info['price'], $category);
+                if($category->getId()) {
+                    $articles[] = new Article($info['id'], $info['name'], $info['image'], $info['description'], $info['price'], $category);
+                }
             }
         }
         return $articles;
     }
 
+    /** All articles by category
+     * @param $category_fk
+     * @return array
+     */
     public function getArticlesByCategory($category_fk): array
     {
         $articles = [];
@@ -69,7 +76,9 @@ class ArticleManager {
         if ($roles_response) {
             foreach ($roles_response as $info) {
                 $category = $this->categoryManager->getCategory($info['category_fk']);
-                $articles[] = new Article($info['id'], $info['name'], $info['image'], $info['description'], $info['price'], $category);
+                if ($category->getId()) {
+                    $articles[] = new Article($info['id'], $info['name'], $info['image'], $info['description'], $info['price'], $category);
+                }
             }
         }
         return $articles;
@@ -77,7 +86,7 @@ class ArticleManager {
 
     /**
      * Add a article
-     * @param Category $category
+     * @param Article $article
      * @return bool
      */
     public function add (Article $article): bool
@@ -98,6 +107,11 @@ class ArticleManager {
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
 
+    /**
+     * update article
+     * @param Article $article
+     * @return bool
+     */
     public function update(Article $article): bool {
         $request = DB::getInstance()->prepare("UPDATE article SET name = :name, image = :image, description = :description, price = :price, stock = :stock, category_fk = :category_fk WHERE id = :id");
         $request->bindValue(':id', $article->getId());

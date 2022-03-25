@@ -10,6 +10,10 @@ import image3 from "../../assets/images/image3.png";
 import image4 from "../../assets/images/image4.png";
 import image5 from "../../assets/images/image5.png";
 import {useState} from "react";
+import {FormCategory} from "../FormCategory/FormCategory";
+import {FormProduct} from "../FormProduct/FormProduct";
+import {Connection} from "../Connection/Connection";
+import {Registration} from "../Registration/Registration";
 
 function App() {
 
@@ -23,9 +27,16 @@ function App() {
         {id: 5, category: 2, cart: 0, title: "Produit 5", image: image5, description: content, price: 230, stock: 0}
     ];
 
+    const categoriesList = [
+        {id: 0, name: "Tout"},
+        {id: 1, name: "Autres"},
+        {id: 2, name: "hardware"}
+    ];
+
     const [products, setProducts] = useState([...productsList]);
     const [isProductUpdated, setIsProductUpdated] = useState(false);
     const [category, setCategory] = useState(0);
+    const [categories, setCategories] = useState([...categoriesList]);
 
     if (isProductUpdated) {
         setProducts(products);
@@ -38,10 +49,14 @@ function App() {
             <div className="width_80">
                 <Cart products={products} setIsProductUpdated={setIsProductUpdated}/>
                 <div className="width_80_2">
-                    <Categories setCategory={setCategory}/>
+                    <Categories setCategory={setCategory} categories={categories}/>
                     <ProductList category={category} products={products} setIsProductUpdated={setIsProductUpdated}/>
                 </div>
             </div>
+            <FormCategory />
+            <FormProduct categories={categories}/>
+            <Connection/>
+            <Registration/>
         </>
     );
 }

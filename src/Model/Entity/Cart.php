@@ -50,6 +50,7 @@ class Cart
 
     /**
      * @param int|null $quantity
+     * @return int|null
      */
     public function setQuantity(?int $quantity): ?int
     {
@@ -67,6 +68,7 @@ class Cart
 
     /**
      * @param Article|null $article_fk
+     * @return Article|null
      */
     public function setArticleFk(?Article $article_fk): ?Article
     {
@@ -84,6 +86,7 @@ class Cart
 
     /**
      * @param User|null $user_fk
+     * @return User|null
      */
     public function setUserFk(?User $user_fk): ?User
     {

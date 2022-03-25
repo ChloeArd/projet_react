@@ -12,6 +12,7 @@ class RoleManager {
     /**
      * Return a role based on id.
      * @param int $id
+     * @return Role
      */
     public function getRole(int $id): Role
     {

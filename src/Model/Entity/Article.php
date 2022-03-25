@@ -130,6 +130,7 @@ class Article
 
     /**
      * @param int|null $stock
+     * @return int|null
      */
     public function setStock(?int $stock): ?int
     {
@@ -147,6 +148,7 @@ class Article
 
     /**
      * @param Category|null $category_fk
+     * @return Category|null
      */
     public function setCategoryFk(?Category $category_fk): ?Category
     {

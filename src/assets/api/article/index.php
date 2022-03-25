@@ -165,7 +165,7 @@ function getArticles(ArticleManager $manager): string {
     return json_encode($response);
 }
 
-/**
+/** Return all article by category
  * @param ArticleManager $manager
  * @param int $category
  * @return string
@@ -190,6 +190,12 @@ function getArticlesByCategory(ArticleManager $manager, int $category): string {
     return json_encode($response);
 }
 
+/**
+ * Return one article
+ * @param ArticleManager $manager
+ * @param int $id
+ * @return string
+ */
 function getArticle(ArticleManager $manager, int $id): string {
     $response = [];
     $data = $manager->getArticle($id);

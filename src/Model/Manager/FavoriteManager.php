@@ -27,10 +27,8 @@ class FavoriteManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($user_fk);
                 $article = ArticleManager::getManager()->getArticle($article_fk);
-                if($user->getId()) {
-                    if ($article->getId()) {
-                        $favorites[] = new Favorite($info['id'], $user, $article);
-                    }
+                if($user->getId() && $article->getId()) {
+                    $favorites[] = new Favorite($info['id'], $user, $article);
                 }
             }
         }
@@ -61,7 +59,7 @@ class FavoriteManager {
 
     /**
      * Delete a article to favorites.
-     * @param Favorite $favorite
+     * @param int $id
      * @return bool
      */
     public function delete (int $id): bool {

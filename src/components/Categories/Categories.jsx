@@ -1,12 +1,6 @@
 import './Categories.css';
 
-export const Categories = function ({setCategory}) {
-
-    const categories = [
-        {id: 0, name: "Tout"},
-        {id: 1, name: "Autres"},
-        {id: 2, name: "hardware"}
-    ];
+export const Categories = function ({setCategory, categories}) {
 
     return (
         <div className="Categories">
