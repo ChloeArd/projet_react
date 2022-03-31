@@ -98,3 +98,7 @@ input {
     font-size: 20px;
     text-align: center;
 }
+
+.product-disabled {
+    background-color: black;
+}

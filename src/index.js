@@ -19,8 +19,9 @@ ReactDOM.render(
       <Route path="/" element={<Home />} />
       <Route path="contact" element={<Contact />} />
       <Route path="user-account" element={<UserAccount />} />
-      <Route path="promotions" element={<Promotions />} />
-      <Route path="description/:productId" element={<ProductDescription />} />
+      <Route path="promotions" element={<Promotions />}>
+        <Route path=":productId" element={<ProductDescription />} />
+      </Route>
       <Route path="*" element={<RouteNotFound />} />
     </Routes>
   </BrowserRouter>,

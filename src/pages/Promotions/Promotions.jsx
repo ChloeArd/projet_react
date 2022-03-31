@@ -1,5 +1,5 @@
 import "./Promotions.css";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { promotions } from "../../promotions";
 
 export const Promotions = function () {
@@ -18,12 +18,22 @@ export const Promotions = function () {
               <td>{product.title}</td>
               <td>{product.price}</td>
               <td>
-                <Link to={"/description/" + product.id}>Voir description</Link>
+                <NavLink
+                  style={({ isActive }) => {
+                    return {
+                      color: isActive ? "orange" : "mediumseagreen",
+                    };
+                  }}
+                  to={`/promotions/${product.id}`}
+                >
+                  Voir description
+                </NavLink>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <Outlet />
     </>
   );
 };
