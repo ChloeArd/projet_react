@@ -1,8 +1,10 @@
 import "./Promotions.css";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 import { promotions } from "../../promotions";
 
 export const Promotions = function () {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <>
       <h1 className="center">Nos promotions du moment</h1>
@@ -22,6 +24,7 @@ export const Promotions = function () {
                   style={({ isActive }) => {
                     return {
                       color: isActive ? "orange" : "mediumseagreen",
+                      background: searchParams.get("color"),
                     };
                   }}
                   to={`/promotions/${product.id}`}
