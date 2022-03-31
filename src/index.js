@@ -2,23 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./assets/js/reportWebVitals";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { Contact } from "./pages/Contact/Contact";
 import { UserAccount } from "./pages/UserAccount/UserAccount";
+import { Header } from "./components/Header/Header";
+import { Promotions } from "./pages/Promotions/Promotions";
+import { ProductDescription } from "./pages/ProductDescription/ProductDescription";
+import { RouteNotFound } from "./components/RouteNotFound/RouteNotFound";
 
 ReactDOM.render(
   <BrowserRouter>
+    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/user-account" element={<UserAccount />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="user-account" element={<UserAccount />} />
+      <Route path="promotions" element={<Promotions />} />
+      <Route path="description/:productId" element={<ProductDescription />} />
+      <Route path="*" element={<RouteNotFound />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

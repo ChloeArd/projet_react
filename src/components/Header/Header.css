@@ -13,3 +13,23 @@
     width: 7%;
     padding-left: 20px;
 }
+
+.nav-links > a {
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #545454;
+    font-size: 20px;
+}
+
+.nav-links > a:hover {
+    color: #1E64DD;
+}
+
+.nav-links {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
